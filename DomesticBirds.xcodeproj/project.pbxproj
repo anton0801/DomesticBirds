@@ -15,9 +15,22 @@
 		8F677A962F83DAFD00BA1736 /* DomesticBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomesticBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8F41C7EE2F93A57C00319557 /* Exceptions for "DomesticBirds" folder in "DomesticBirds" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8F677A952F83DAFD00BA1736 /* DomesticBirds */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8F677A982F83DAFD00BA1736 /* DomesticBirds */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8F41C7EE2F93A57C00319557 /* Exceptions for "DomesticBirds" folder in "DomesticBirds" target */,
+			);
 			path = DomesticBirds;
 			sourceTree = "<group>";
 		};
@@ -256,7 +269,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DomesticBirds/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Domestic Birds";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use all features in application";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -295,7 +310,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DomesticBirds/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Domestic Birds";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use all features in application";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
