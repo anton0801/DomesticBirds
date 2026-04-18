@@ -1,0 +1,142 @@
+import Foundation
+
+// MARK: - Breed Catalog Data
+extension BirdBreed {
+    static let catalog: [BirdBreed] = chickens + ducks + geese + turkeys + quails + guineaFowl + pheasants
+
+    static let chickens: [BirdBreed] = [
+        BirdBreed(name: "Leghorn", category: .chickens, origin: "Italy",
+                  description: "A prolific egg-laying breed known for white eggs. Active, alert, and good foragers. One of the most popular commercial laying breeds worldwide.",
+                  weightMale: 2.7, weightFemale: 2.0, eggsPerYear: 280, eggColor: "White",
+                  temperament: "Active, flighty", purpose: "Eggs", lifespan: "4–6 years", maturityWeeks: 18,
+                  colorPattern: "White, Brown, Black, Buff"),
+        BirdBreed(name: "Rhode Island Red", category: .chickens, origin: "USA",
+                  description: "A dual-purpose breed prized for both eggs and meat. Hardy, calm, and good foragers. Known for rich brown eggs and adaptability to various climates.",
+                  weightMale: 3.8, weightFemale: 2.9, eggsPerYear: 250, eggColor: "Brown",
+                  temperament: "Calm, hardy", purpose: "Dual-purpose", lifespan: "5–8 years", maturityWeeks: 20,
+                  colorPattern: "Dark red-brown with black tail"),
+        BirdBreed(name: "Plymouth Rock", category: .chickens, origin: "USA",
+                  description: "A gentle, dual-purpose breed with distinctive barred plumage. Excellent mothers and winter-hardy. Good for free-range and backyard flocks.",
+                  weightMale: 4.3, weightFemale: 3.4, eggsPerYear: 200, eggColor: "Brown",
+                  temperament: "Docile, friendly", purpose: "Dual-purpose", lifespan: "6–8 years", maturityWeeks: 22,
+                  colorPattern: "Barred black and white"),
+        BirdBreed(name: "Sussex", category: .chickens, origin: "England",
+                  description: "An ancient English breed, excellent for both eggs and meat. Known for being quiet, friendly, and curious. Adapts well to confinement.",
+                  weightMale: 4.1, weightFemale: 3.2, eggsPerYear: 220, eggColor: "Cream to brown",
+                  temperament: "Curious, docile", purpose: "Dual-purpose", lifespan: "6–8 years", maturityWeeks: 20,
+                  colorPattern: "Speckled, Light, Red, White"),
+        BirdBreed(name: "Orpington", category: .chickens, origin: "England",
+                  description: "A large, fluffy breed known for being calm and broody. Excellent winter layers. Popular as backyard pets due to their gentle nature.",
+                  weightMale: 4.5, weightFemale: 3.6, eggsPerYear: 175, eggColor: "Light brown",
+                  temperament: "Calm, broody", purpose: "Dual-purpose", lifespan: "8+ years", maturityWeeks: 22,
+                  colorPattern: "Buff, Black, Blue, White"),
+        BirdBreed(name: "Wyandotte", category: .chickens, origin: "USA",
+                  description: "A beautiful, cold-hardy breed with a rose comb. Good egg layer and meaty body. Comes in many laced and patterned varieties.",
+                  weightMale: 3.8, weightFemale: 2.9, eggsPerYear: 200, eggColor: "Brown",
+                  temperament: "Friendly, assertive", purpose: "Dual-purpose", lifespan: "6–8 years", maturityWeeks: 20,
+                  colorPattern: "Silver Laced, Gold Laced, Blue"),
+        BirdBreed(name: "Marans", category: .chickens, origin: "France",
+                  description: "Famous for laying very dark chocolate-brown eggs. Semi-active and good foragers. The darker the egg, the more prized the hen.",
+                  weightMale: 3.5, weightFemale: 2.7, eggsPerYear: 150, eggColor: "Dark chocolate brown",
+                  temperament: "Calm, independent", purpose: "Eggs", lifespan: "5–7 years", maturityWeeks: 24,
+                  colorPattern: "Cuckoo, Black Copper"),
+        BirdBreed(name: "Australorp", category: .chickens, origin: "Australia",
+                  description: "Holds the world record for egg production. Developed from Black Orpingtons for Australian conditions. Gentle and reliable layer.",
+                  weightMale: 3.9, weightFemale: 3.0, eggsPerYear: 300, eggColor: "Light brown",
+                  temperament: "Gentle, reliable", purpose: "Eggs", lifespan: "6–8 years", maturityWeeks: 20,
+                  colorPattern: "Black with green sheen"),
+    ]
+
+    static let ducks: [BirdBreed] = [
+        BirdBreed(name: "Pekin", category: .ducks, origin: "China",
+                  description: "The most popular duck breed for meat production. Calm, large, and fast-growing. Also commonly kept as pets. White feathers and orange bill.",
+                  weightMale: 4.1, weightFemale: 3.6, eggsPerYear: 140, eggColor: "White to cream",
+                  temperament: "Calm, curious", purpose: "Meat & Eggs", lifespan: "8–12 years", maturityWeeks: 8,
+                  colorPattern: "All white"),
+        BirdBreed(name: "Khaki Campbell", category: .ducks, origin: "England",
+                  description: "One of the best egg-laying duck breeds, surpassing most chickens. Active and excellent foragers. Khaki-brown coloration.",
+                  weightMale: 2.4, weightFemale: 2.2, eggsPerYear: 300, eggColor: "White",
+                  temperament: "Active, nervous", purpose: "Eggs", lifespan: "10–15 years", maturityWeeks: 20,
+                  colorPattern: "Khaki brown"),
+        BirdBreed(name: "Muscovy", category: .ducks, origin: "South America",
+                  description: "Not a true duck — related to geese. Very quiet, no quack, just a hiss. Excellent foragers that eat lots of insects. Lean meat.",
+                  weightMale: 6.0, weightFemale: 3.0, eggsPerYear: 60, eggColor: "White",
+                  temperament: "Independent, quiet", purpose: "Meat", lifespan: "7–8 years", maturityWeeks: 28,
+                  colorPattern: "Black, White, Pied"),
+        BirdBreed(name: "Runner Duck", category: .ducks, origin: "Southeast Asia",
+                  description: "Famous for its upright posture and running (not waddling) gait. Excellent forager and layer. Unique bottle or wine-glass body shape.",
+                  weightMale: 2.0, weightFemale: 1.8, eggsPerYear: 180, eggColor: "White, blue, green",
+                  temperament: "Active, alert", purpose: "Eggs & Foraging", lifespan: "8–12 years", maturityWeeks: 22,
+                  colorPattern: "Fawn & White, Black, Chocolate"),
+    ]
+
+    static let geese: [BirdBreed] = [
+        BirdBreed(name: "Embden", category: .geese, origin: "Germany",
+                  description: "The most common goose in commercial production. Large white goose with blue eyes. Raised primarily for meat. Good parents.",
+                  weightMale: 12.0, weightFemale: 9.0, eggsPerYear: 35, eggColor: "White",
+                  temperament: "Aggressive, loud", purpose: "Meat", lifespan: "15–20 years", maturityWeeks: 34,
+                  colorPattern: "All white"),
+        BirdBreed(name: "Toulouse", category: .geese, origin: "France",
+                  description: "Large, heavy goose prized for foie gras production. Calm and easy to handle. Grey plumage with distinctive dewlap (skin fold under bill).",
+                  weightMale: 12.0, weightFemale: 9.0, eggsPerYear: 25, eggColor: "White",
+                  temperament: "Calm, lazy", purpose: "Meat", lifespan: "15–20 years", maturityWeeks: 36,
+                  colorPattern: "Grey"),
+        BirdBreed(name: "Chinese", category: .geese, origin: "China",
+                  description: "Descended from the wild Swan goose. Excellent layers for geese. Known as 'guard geese' for their loud alarm calls. Distinctive knob on bill.",
+                  weightMale: 5.4, weightFemale: 4.5, eggsPerYear: 60, eggColor: "White",
+                  temperament: "Alert, loud", purpose: "Eggs & Guard", lifespan: "15–20 years", maturityWeeks: 28,
+                  colorPattern: "White, Brown/Grey"),
+    ]
+
+    static let turkeys: [BirdBreed] = [
+        BirdBreed(name: "Broad-Breasted White", category: .turkeys, origin: "USA",
+                  description: "The dominant commercial turkey breed. Bred for maximum breast meat. Cannot mate naturally due to body size. Rapid growth rate.",
+                  weightMale: 18.0, weightFemale: 10.0, eggsPerYear: 90, eggColor: "Speckled brown",
+                  temperament: "Calm, slow", purpose: "Meat", lifespan: "3–5 years", maturityWeeks: 28,
+                  colorPattern: "All white"),
+        BirdBreed(name: "Heritage Bronze", category: .turkeys, origin: "USA",
+                  description: "Classic heritage breed with beautiful bronze iridescent plumage. Can mate naturally. Slower growing but superior flavor. Good foragers.",
+                  weightMale: 11.3, weightFemale: 6.4, eggsPerYear: 100, eggColor: "Speckled brown",
+                  temperament: "Alert, active", purpose: "Meat", lifespan: "5–7 years", maturityWeeks: 34,
+                  colorPattern: "Bronze iridescent"),
+        BirdBreed(name: "Narragansett", category: .turkeys, origin: "USA",
+                  description: "One of America's oldest turkey breeds. Excellent maternal instincts and disease resistance. Striking grey, tan, and black plumage.",
+                  weightMale: 10.9, weightFemale: 6.4, eggsPerYear: 100, eggColor: "Speckled brown",
+                  temperament: "Calm, good mother", purpose: "Dual-purpose", lifespan: "5–7 years", maturityWeeks: 32,
+                  colorPattern: "Grey, tan, black, white"),
+    ]
+
+    static let quails: [BirdBreed] = [
+        BirdBreed(name: "Coturnix (Japanese)", category: .quails, origin: "Japan",
+                  description: "The most popular quail for egg and meat production. Incredibly productive layer. Reaches maturity at only 6–8 weeks. Small but mighty.",
+                  weightMale: 0.12, weightFemale: 0.14, eggsPerYear: 300, eggColor: "Speckled",
+                  temperament: "Calm, productive", purpose: "Eggs & Meat", lifespan: "2–3 years", maturityWeeks: 6,
+                  colorPattern: "Wild type, Tuxedo, White"),
+        BirdBreed(name: "Bobwhite", category: .quails, origin: "North America",
+                  description: "Native North American quail, well-known for its distinctive 'Bob-White' call. Raised for sport hunting and meat. More challenging to raise than Coturnix.",
+                  weightMale: 0.19, weightFemale: 0.17, eggsPerYear: 100, eggColor: "White",
+                  temperament: "Wild, flighty", purpose: "Meat & Sport", lifespan: "3–4 years", maturityWeeks: 16,
+                  colorPattern: "Brown, white, black streaked"),
+    ]
+
+    static let guineaFowl: [BirdBreed] = [
+        BirdBreed(name: "Helmeted Guinea Fowl", category: .guineaFowl, origin: "Africa",
+                  description: "The most common domesticated guinea fowl. Excellent for pest control — they eat ticks, insects, and small rodents. Loud alarm callers.",
+                  weightMale: 1.5, weightFemale: 1.3, eggsPerYear: 100, eggColor: "Brown speckled",
+                  temperament: "Noisy, flighty", purpose: "Pest Control & Meat", lifespan: "10–15 years", maturityWeeks: 28,
+                  colorPattern: "Pearl grey with white spots"),
+    ]
+
+    static let pheasants: [BirdBreed] = [
+        BirdBreed(name: "Ring-Necked Pheasant", category: .pheasants, origin: "Asia",
+                  description: "The most widely hunted game bird in the world. Males have spectacular iridescent plumage. Raised for release or meat production.",
+                  weightMale: 1.4, weightFemale: 1.0, eggsPerYear: 50, eggColor: "Olive brown",
+                  temperament: "Wild, flighty", purpose: "Meat & Sport", lifespan: "3–5 years", maturityWeeks: 24,
+                  colorPattern: "Iridescent green/copper (male), brown (female)"),
+        BirdBreed(name: "Golden Pheasant", category: .pheasants, origin: "China",
+                  description: "One of the most stunning birds in the world. Primarily ornamental. Males have brilliant gold, red, and green plumage. Hardy and easy to keep.",
+                  weightMale: 0.63, weightFemale: 0.52, eggsPerYear: 30, eggColor: "Pale buff",
+                  temperament: "Shy, ornamental", purpose: "Ornamental", lifespan: "5–6 years", maturityWeeks: 40,
+                  colorPattern: "Gold, red, orange, green (male)"),
+    ]
+}
