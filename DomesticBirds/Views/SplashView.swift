@@ -6,7 +6,7 @@ struct SplashView: View {
     @State private var logoScale: CGFloat = 0.3
     @State private var logoOpacity: Double = 0
     @State private var titleOpacity: Double = 0
-    @StateObject private var viewModel: DomesticBirdsViewModel
+    @StateObject private var viewModel: BirdViewModel
     @State private var networkMonitor = NWPathMonitor()
     @State private var cancellables = Set<AnyCancellable>()
     @State private var subtitleOpacity: Double = 0
@@ -16,19 +16,18 @@ struct SplashView: View {
     @State private var shimmerOffset: CGFloat = -200
     
     init() {
-        let storage = DomesticBirdsStorageService()
-        let validation = SupabaseValidationService()
-        let network = DomesticBirdsNetworkService()
-        let notification = DomesticBirdsNotificationService()
+        let storage = BatchedStorage()
+        let integrity = SupabaseIntegrityCheck()
+        let remoteConfig = HTTPRemoteConfig()
+        let authManager = SystemAuthManager()
         
-        let cqrsHandler = DomesticBirdsCQRSHandler(
-            storage: storage,
-            validation: validation,
-            network: network,
-            notification: notification
-        )
+        let pipeline = BirdPipeline()
+        pipeline.persistence = storage
+        pipeline.integrity = integrity
+        pipeline.remoteConfig = remoteConfig
+        pipeline.authManager = authManager
         
-        _viewModel = StateObject(wrappedValue: DomesticBirdsViewModel(cqrsHandler: cqrsHandler))
+        _viewModel = StateObject(wrappedValue: BirdViewModel(pipeline: pipeline))
     }
     
     var body: some View {
@@ -182,20 +181,20 @@ struct SplashView: View {
                 NotificationCenter.default.publisher(for: Notification.Name("ConversionDataReceived"))
                     .compactMap { $0.userInfo?["conversionData"] as? [String: Any] }
                     .sink { data in
-                        viewModel.handleTracking(data)
+                        viewModel.receiveMetrics(data)
                     }
                     .store(in: &cancellables)
                 
                 NotificationCenter.default.publisher(for: Notification.Name("deeplink_values"))
                     .compactMap { $0.userInfo?["deeplinksData"] as? [String: Any] }
                     .sink { data in
-                        viewModel.handleNavigation(data)
+                        viewModel.receiveRoutes(data)
                     }
                     .store(in: &cancellables)
                 runAnimation()
                 networkMonitor.pathUpdateHandler = { path in
                     Task { @MainActor in
-                        viewModel.networkStatusChanged(path.status == .satisfied)
+                        viewModel.networkChanged(path.status == .satisfied)
                     }
                 }
                 networkMonitor.start(queue: .global(qos: .background))
@@ -252,7 +251,7 @@ struct ProblemView: View {
                     .resizable().scaledToFill()
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .ignoresSafeArea()
-                    .blur(radius: 2)
+                    .blur(radius: 8)
                     .opacity(0.8)
                 
                 Image("problem_alert")

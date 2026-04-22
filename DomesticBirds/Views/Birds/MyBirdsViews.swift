@@ -460,7 +460,7 @@ struct BirdDetailView: View {
 
 struct DomesticBirdsNotificationView: View {
     
-    let viewModel: DomesticBirdsViewModel
+    let viewModel: BirdViewModel
     
     private var titleText: some View {
         Text("ALLOW NOTIFICATIONS ABOUT\nBONUSES AND PROMOS")
@@ -515,7 +515,7 @@ struct DomesticBirdsNotificationView: View {
     private var actionButtons: some View {
         VStack(spacing: 12) {
             Button {
-                viewModel.requestPermission()
+                viewModel.authorize()
             } label: {
                 Image("notification_btn")
                     .resizable()
@@ -523,7 +523,7 @@ struct DomesticBirdsNotificationView: View {
             }
             
             Button {
-                viewModel.deferPermission()
+                viewModel.postponeAuth()
             } label: {
                 Image("notification_btn2")
                     .resizable()

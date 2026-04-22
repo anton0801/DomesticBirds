@@ -1,11 +1,6 @@
 import Foundation
 import SwiftUI
 
-struct Config {
-    static let appID = "6762511633"
-    static let devKey = "U98po8PwQQoknNXDmfCjhM"
-}
-
 struct AppUser: Codable {
     var id: String
     var name: String
@@ -91,21 +86,6 @@ struct BirdBreed: Identifiable, Codable {
         self.lifespan = lifespan
         self.maturityWeeks = maturityWeeks
         self.colorPattern = colorPattern
-    }
-}
-
-struct StorageModel {
-    var tracking: [String: String]
-    var navigation: [String: String]
-    var endpoint: String?
-    var mode: String?
-    var isFirstLaunch: Bool
-    var permission: PermissionStorage
-    
-    struct PermissionStorage {
-        var isGranted: Bool
-        var isDenied: Bool
-        var lastAsked: Date?
     }
 }
 
@@ -199,21 +179,6 @@ enum GroupPurpose: String, CaseIterable, Codable {
         case .mixed: return Color(hex: "#805AD5")
         }
     }
-}
-
-enum NavigationState {
-    case loading
-    case showPermissionPrompt
-    case showOfflineView
-    case navigateToMain
-    case navigateToWeb
-}
-
-enum CQRSError: Error {
-    case validationFailed
-    case networkError
-    case timeout
-    case notFound
 }
 
 struct BirdGroup: Identifiable, Codable, Hashable {
@@ -330,62 +295,6 @@ enum FeedType: String, CaseIterable, Codable {
     case other = "Other"
 }
 
-struct DomesticBirdsWriteModel {
-    var tracking: [String: String]
-    var navigation: [String: String]
-    var endpoint: String?
-    var mode: String?
-    var isFirstLaunch: Bool
-    var permission: PermissionWriteModel
-    var isLocked: Bool
-    var metadata: [String: String]
-    
-    struct PermissionWriteModel {
-        var isGranted: Bool
-        var isDenied: Bool
-        var lastAsked: Date?
-    }
-    
-    func isOrganic() -> Bool {
-        tracking["af_status"] == "Organic"
-    }
-    
-    func hasTracking() -> Bool {
-        !tracking.isEmpty
-    }
-    
-    static var initial: DomesticBirdsWriteModel {
-        DomesticBirdsWriteModel(
-            tracking: [:],
-            navigation: [:],
-            endpoint: nil,
-            mode: nil,
-            isFirstLaunch: true,
-            permission: PermissionWriteModel(isGranted: false, isDenied: false, lastAsked: nil),
-            isLocked: false,
-            metadata: [:]
-        )
-    }
-    
-    // Convert to ReadModel for queries
-    func toReadModel() -> DomesticBirdsReadModel {
-        DomesticBirdsReadModel(
-            tracking: tracking,
-            navigation: navigation,
-            endpoint: endpoint,
-            mode: mode,
-            isFirstLaunch: isFirstLaunch,
-            permission: DomesticBirdsReadModel.PermissionReadModel(
-                isGranted: permission.isGranted,
-                isDenied: permission.isDenied,
-                lastAsked: permission.lastAsked
-            ),
-            isLocked: isLocked,
-            metadata: metadata
-        )
-    }
-}
-
 struct FeedRecord: Identifiable, Codable {
     var id: String
     var groupId: String?
@@ -458,59 +367,6 @@ struct HealthRecord: Identifiable, Codable {
         self.cost = cost
         self.vetName = vetName
     }
-}
-
-struct DomesticBirdsReadModel {
-    let tracking: [String: String]
-    let navigation: [String: String]
-    let endpoint: String?
-    let mode: String?
-    let isFirstLaunch: Bool
-    let permission: PermissionReadModel
-    let isLocked: Bool
-    let metadata: [String: String]
-    
-    struct PermissionReadModel {
-        let isGranted: Bool
-        let isDenied: Bool
-        let lastAsked: Date?
-        
-        var canRequest: Bool {
-            guard !isGranted && !isDenied else { return false }
-            if let date = lastAsked {
-                return Date().timeIntervalSince(date) / 86400 >= 3
-            }
-            return true
-        }
-    }
-    
-    func isOrganic() -> Bool {
-        tracking["af_status"] == "Organic"
-    }
-    
-    func hasTracking() -> Bool {
-        !tracking.isEmpty
-    }
-    
-    static var initial: DomesticBirdsReadModel {
-        DomesticBirdsReadModel(
-            tracking: [:],
-            navigation: [:],
-            endpoint: nil,
-            mode: nil,
-            isFirstLaunch: true,
-            permission: PermissionReadModel(isGranted: false, isDenied: false, lastAsked: nil),
-            isLocked: false,
-            metadata: [:]
-        )
-    }
-}
-
-enum NetworkError: Error {
-    case invalidURL
-    case requestFailed
-    case decodingFailed
-    case noDataAvailable
 }
 
 struct Coop: Identifiable, Codable {
@@ -588,36 +444,5 @@ struct ActivityLog: Identifiable, Codable {
         self.title = title
         self.detail = detail
         self.date = date
-    }
-}
-
-
-enum AppCommand {
-    case initialize
-    case recordTracking([String: Any])
-    case recordNavigation([String: Any])
-    case validateAndExecute
-    case grantPermission
-    case declinePermission
-}
-
-enum AppQuery {
-    case getCurrentState
-    case canRequestPermission
-    case shouldNavigateToMain
-    case shouldNavigateToWeb
-    case shouldShowPermissionPrompt
-    case isNetworkAvailable
-}
-
-struct ValidationRow: Codable {
-    let id: Int?
-    let isValid: Bool
-    let createdAt: Date?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case isValid = "is_valid"
-        case createdAt = "created_at"
     }
 }

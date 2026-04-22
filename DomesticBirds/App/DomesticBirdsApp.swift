@@ -1,5 +1,10 @@
 import SwiftUI
 
+struct BirdConstants {
+    static let appID = "6762511633"
+    static let devKey = "U98po8PwQQoknNXDmfCjhM"
+}
+
 @main
 struct DomesticBirdsApp: App {
 
@@ -11,21 +16,6 @@ struct DomesticBirdsApp: App {
         }
     }
 }
-
-final class AttributionBridge: NSObject {
-    var onTracking: (([AnyHashable: Any]) -> Void)?
-    var onNavigation: (([AnyHashable: Any]) -> Void)?
-    private var trackingBuf: [AnyHashable: Any] = [:], navigationBuf: [AnyHashable: Any] = [:], timer: Timer?
-    
-    func receiveTracking(_ data: [AnyHashable: Any]) { trackingBuf = data; scheduleTimer(); if !navigationBuf.isEmpty { merge() } }
-    func receiveNavigation(_ data: [AnyHashable: Any]) {
-        guard !UserDefaults.standard.bool(forKey: "db_launch_flag") else { return }
-        navigationBuf = data; onNavigation?(data); timer?.invalidate(); if !trackingBuf.isEmpty { merge() }
-    }
-    private func scheduleTimer() { timer?.invalidate(); timer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] _ in self?.merge() } }
-    private func merge() { var result = trackingBuf; navigationBuf.forEach { k, v in let key = "deep_\(k)"; if result[key] == nil { result[key] = v } }; onTracking?(result) }
-}
-
 
 struct MainView: View {
     @StateObject private var appState = AppState()
@@ -69,18 +59,42 @@ struct AuthNavigationView: View {
     }
 }
 
-
-final class PushBridge: NSObject {
+final class PushManager: NSObject {
     func process(_ payload: [AnyHashable: Any]) {
-        guard let url = extract(from: payload) else { return }
+        guard let url = extract(payload) else { return }
+        
         UserDefaults.standard.set(url, forKey: "temp_url")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { NotificationCenter.default.post(name: .init("LoadTempURL"), object: nil, userInfo: ["temp_url": url]) }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            NotificationCenter.default.post(
+                name: .init("LoadTempURL"),
+                object: nil,
+                userInfo: ["temp_url": url]
+            )
+        }
     }
-    private func extract(from p: [AnyHashable: Any]) -> String? {
-        if let u = p["url"] as? String { return u }
-        if let d = p["data"] as? [String: Any], let u = d["url"] as? String { return u }
-        if let a = p["aps"] as? [String: Any], let d = a["data"] as? [String: Any], let u = d["url"] as? String { return u }
-        if let c = p["custom"] as? [String: Any], let u = c["target_url"] as? String { return u }
+    
+    private func extract(_ payload: [AnyHashable: Any]) -> String? {
+        if let direct = payload["url"] as? String {
+            return direct
+        }
+        
+        if let nested = payload["data"] as? [String: Any],
+           let url = nested["url"] as? String {
+            return url
+        }
+        
+        if let aps = payload["aps"] as? [String: Any],
+           let nested = aps["data"] as? [String: Any],
+           let url = nested["url"] as? String {
+            return url
+        }
+        
+        if let custom = payload["custom"] as? [String: Any],
+           let url = custom["target_url"] as? String {
+            return url
+        }
+        
         return nil
     }
 }
