@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBpdSsXEaEJln9KelvNc4cvX66lyFL9nfc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>771284136382</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.birdsdoomm.DomesticBirds</string>
+	<key>PROJECT_ID</key>
+	<string>domesticbirds-4078d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>domesticbirds-4078d.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:771284136382:ios:2eaa1ae0a406e6aec6c9ef</string>
+</dict>
+</plist>

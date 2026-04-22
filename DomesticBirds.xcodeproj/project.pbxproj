@@ -8,11 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		8F41C7EC2F939C1500319557 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 8F41C7EA2F939C1100319557 /* codemagic.yaml */; };
+		8F7D3E422F98F1A100A2568D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E412F98F1A100A2568D /* FirebaseCore */; };
+		8F7D3E442F98F1A100A2568D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E432F98F1A100A2568D /* FirebaseMessaging */; };
+		8F7D3E472F98F41100A2568D /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E462F98F41100A2568D /* PostgREST */; };
+		8F7D3E492F98F41100A2568D /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E482F98F41100A2568D /* Supabase */; };
+		8F7D3E4C2F98F41B00A2568D /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E4B2F98F41B00A2568D /* AppsFlyerLib */; };
+		8F7D3E582F98F4BB00A2568D /* DomesticBirdsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8F7D3E512F98F4BB00A2568D /* DomesticBirdsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F7D3E602F98F4C900A2568D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D3E5F2F98F4C900A2568D /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F7D3E562F98F4BB00A2568D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F677A8E2F83DAFD00BA1736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F7D3E502F98F4BB00A2568D;
+			remoteInfo = DomesticBirdsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F7D3E5D2F98F4BB00A2568D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F7D3E582F98F4BB00A2568D /* DomesticBirdsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8F41C7EA2F939C1100319557 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		8F677A962F83DAFD00BA1736 /* DomesticBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomesticBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7D3E512F98F4BB00A2568D /* DomesticBirdsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DomesticBirdsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -22,6 +54,13 @@
 				Info.plist,
 			);
 			target = 8F677A952F83DAFD00BA1736 /* DomesticBirds */;
+		};
+		8F7D3E5C2F98F4BB00A2568D /* Exceptions for "DomesticBirdsExtension" folder in "DomesticBirdsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8F7D3E502F98F4BB00A2568D /* DomesticBirdsExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -34,6 +73,14 @@
 			path = DomesticBirds;
 			sourceTree = "<group>";
 		};
+		8F7D3E522F98F4BB00A2568D /* DomesticBirdsExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8F7D3E5C2F98F4BB00A2568D /* Exceptions for "DomesticBirdsExtension" folder in "DomesticBirdsExtension" target */,
+			);
+			path = DomesticBirdsExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +88,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7D3E492F98F41100A2568D /* Supabase in Frameworks */,
+				8F7D3E4C2F98F41B00A2568D /* AppsFlyerLib in Frameworks */,
+				8F7D3E472F98F41100A2568D /* PostgREST in Frameworks */,
+				8F7D3E442F98F1A100A2568D /* FirebaseMessaging in Frameworks */,
+				8F7D3E422F98F1A100A2568D /* FirebaseCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F7D3E4E2F98F4BB00A2568D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F7D3E602F98F4C900A2568D /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +112,8 @@
 			children = (
 				8F41C7EA2F939C1100319557 /* codemagic.yaml */,
 				8F677A982F83DAFD00BA1736 /* DomesticBirds */,
+				8F7D3E522F98F4BB00A2568D /* DomesticBirdsExtension */,
+				8F7D3E5E2F98F4C900A2568D /* Frameworks */,
 				8F677A972F83DAFD00BA1736 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,8 +122,16 @@
 			isa = PBXGroup;
 			children = (
 				8F677A962F83DAFD00BA1736 /* DomesticBirds.app */,
+				8F7D3E512F98F4BB00A2568D /* DomesticBirdsExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8F7D3E5E2F98F4C900A2568D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,20 +144,50 @@
 				8F677A922F83DAFD00BA1736 /* Sources */,
 				8F677A932F83DAFD00BA1736 /* Frameworks */,
 				8F677A942F83DAFD00BA1736 /* Resources */,
+				8F7D3E5D2F98F4BB00A2568D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F7D3E572F98F4BB00A2568D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				8F677A982F83DAFD00BA1736 /* DomesticBirds */,
 			);
 			name = DomesticBirds;
 			packageProductDependencies = (
+				8F7D3E412F98F1A100A2568D /* FirebaseCore */,
+				8F7D3E432F98F1A100A2568D /* FirebaseMessaging */,
+				8F7D3E462F98F41100A2568D /* PostgREST */,
+				8F7D3E482F98F41100A2568D /* Supabase */,
+				8F7D3E4B2F98F41B00A2568D /* AppsFlyerLib */,
 			);
 			productName = DomesticBirds;
 			productReference = 8F677A962F83DAFD00BA1736 /* DomesticBirds.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8F7D3E502F98F4BB00A2568D /* DomesticBirdsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F7D3E592F98F4BB00A2568D /* Build configuration list for PBXNativeTarget "DomesticBirdsExtension" */;
+			buildPhases = (
+				8F7D3E4D2F98F4BB00A2568D /* Sources */,
+				8F7D3E4E2F98F4BB00A2568D /* Frameworks */,
+				8F7D3E4F2F98F4BB00A2568D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8F7D3E522F98F4BB00A2568D /* DomesticBirdsExtension */,
+			);
+			name = DomesticBirdsExtension;
+			packageProductDependencies = (
+				8F7D3E5F2F98F4C900A2568D /* FirebaseMessaging */,
+			);
+			productName = DomesticBirdsExtension;
+			productReference = 8F7D3E512F98F4BB00A2568D /* DomesticBirdsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -102,6 +202,9 @@
 					8F677A952F83DAFD00BA1736 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					8F7D3E502F98F4BB00A2568D = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 8F677A912F83DAFD00BA1736 /* Build configuration list for PBXProject "DomesticBirds" */;
@@ -113,12 +216,18 @@
 			);
 			mainGroup = 8F677A8D2F83DAFD00BA1736;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8F7D3E402F98F1A100A2568D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8F7D3E452F98F41100A2568D /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				8F7D3E4A2F98F41B00A2568D /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F677A972F83DAFD00BA1736 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8F677A952F83DAFD00BA1736 /* DomesticBirds */,
+				8F7D3E502F98F4BB00A2568D /* DomesticBirdsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +241,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F7D3E4F2F98F4BB00A2568D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -142,7 +258,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F7D3E4D2F98F4BB00A2568D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F7D3E572F98F4BB00A2568D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F7D3E502F98F4BB00A2568D /* DomesticBirdsExtension */;
+			targetProxy = 8F7D3E562F98F4BB00A2568D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8F677AA02F83DAFF00BA1736 /* Debug */ = {
@@ -272,6 +403,7 @@
 				INFOPLIST_FILE = DomesticBirds/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Domestic Birds";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use all features in application";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Domestic Birds operates using minimal system data to keep features responsive and dependable. Any technical information accessed from your device is used solely to maintain functionality, troubleshoot issues, and refine the experience over time. This process does not involve monitoring activity beyond the app, linking data to external services, or using information for advertising purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -286,7 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.00.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.birdsdoomm.DomesticBirds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -313,6 +445,7 @@
 				INFOPLIST_FILE = DomesticBirds/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Domestic Birds";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use all features in application";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Domestic Birds operates using minimal system data to keep features responsive and dependable. Any technical information accessed from your device is used solely to maintain functionality, troubleshoot issues, and refine the experience over time. This process does not involve monitoring activity beyond the app, linking data to external services, or using information for advertising purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -327,7 +460,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.00.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.birdsdoomm.DomesticBirds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -338,6 +471,67 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
+		8F7D3E5A2F98F4BB00A2568D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DomesticBirdsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DomesticBirdsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birdsdoomm.DomesticBirds.DomesticBirdsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F7D3E5B2F98F4BB00A2568D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DomesticBirdsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DomesticBirdsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birdsdoomm.DomesticBirds.DomesticBirdsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -362,7 +556,76 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8F7D3E592F98F4BB00A2568D /* Build configuration list for PBXNativeTarget "DomesticBirdsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F7D3E5A2F98F4BB00A2568D /* Debug */,
+				8F7D3E5B2F98F4BB00A2568D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F7D3E402F98F1A100A2568D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+		8F7D3E452F98F41100A2568D /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		8F7D3E4A2F98F41B00A2568D /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.18.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F7D3E412F98F1A100A2568D /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E402F98F1A100A2568D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		8F7D3E432F98F1A100A2568D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E402F98F1A100A2568D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		8F7D3E462F98F41100A2568D /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E452F98F41100A2568D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		8F7D3E482F98F41100A2568D /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E452F98F41100A2568D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		8F7D3E4B2F98F41B00A2568D /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E4A2F98F41B00A2568D /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
+		};
+		8F7D3E5F2F98F4C900A2568D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7D3E402F98F1A100A2568D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F677A8E2F83DAFD00BA1736 /* Project object */;
 }
